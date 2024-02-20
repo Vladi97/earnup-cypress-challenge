@@ -11,6 +11,7 @@ Use the npm (package manager) to install dependencies.
 ## Usage
 
 - npm run cy:Open
+- npm run cy:Run
 
 ## Developed by
 
