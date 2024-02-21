@@ -26,6 +26,13 @@ describe("Should allow user to login and logout",
             loginPage.enterUsername(accounts.locked_out_user.username);
             loginPage.enterPassword(accounts.locked_out_user.password);
             loginPage.clickLoginButton();
+            cy.assertTextOnElement('#login_button_container .error-message-container h3', 'Epic sadface: Sorry, this user has been locked out.');
+        })
+
+        it('User is not able to login with invalid credentials',()=> {
+            loginPage.enterUsername(accounts.locked_out_user.username+'1');
+            loginPage.enterPassword(accounts.locked_out_user.password);
+            loginPage.clickLoginButton();
             cy.assertTextOnElement('#login_button_container .error-message-container h3', 'Epic sadface: Username and password do not match any user in this service');
         })
 
